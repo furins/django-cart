@@ -65,6 +65,9 @@ class Cart:
                 cart=self.cart,
                 product=product,
             )
+            item.quantity = int(quantity)
+            item.unit_price = unit_price if unit_price is not None
+            item.save()
         except models.Item.DoesNotExist:
             raise ItemDoesNotExist
             

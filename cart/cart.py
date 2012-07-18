@@ -1,4 +1,3 @@
-import datetime
 import models
 
 CART_ID = 'CART-ID'
@@ -26,7 +25,7 @@ class Cart:
             yield item
 
     def new(self, request):
-        cart = models.Cart(creation_date=datetime.datetime.now())
+        cart = models.Cart()
         cart.save()
         request.session[CART_ID] = cart.id
         return cart
